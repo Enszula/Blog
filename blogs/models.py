@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 class Post(models.Model):
@@ -5,6 +6,7 @@ class Post(models.Model):
     title = models.CharField(max_length=50)
     text = models.CharField(max_length=2200)
     date_added = models.DateTimeField(auto_now_add=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name_plural = 'posts'
