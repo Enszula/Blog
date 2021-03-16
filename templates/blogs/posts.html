@@ -1,0 +1,18 @@
+{% extends "blogs/base.html" %}
+
+{% block content %}
+
+    <p>Posts</p>
+
+    <ul>
+        {% for post in posts %}
+            <li>
+                {{ post.date_added }}<strong>{{ post.title }}</strong>
+            </li>
+            {{ post.text }}
+        {% empty %}
+            <li>No posts ahve been added yet.</li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
