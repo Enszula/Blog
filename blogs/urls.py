@@ -11,4 +11,7 @@ urlpatterns = [
 
     # Page that shows all posts.
     path('posts/', views.posts, name='posts'),
+
+    # Detail page for a single topic.
+    path('posts/<int:post_id>', views.post, name='post')
 ]

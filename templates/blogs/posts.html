@@ -7,11 +7,14 @@
     <ul>
         {% for post in posts %}
             <li>
-                {{ post.date_added }}<strong>{{ post.title }}</strong>
+                {{ post.date_added }}
+                <strong>
+                    <a href="{% url 'blogs:post' post.id %}">{{ post.title }}</a>
+                </strong>
             </li>
-            {{ post.text }}
+            {{ post.text|linebreaks }}
         {% empty %}
-            <li>No posts ahve been added yet.</li>
+            <li>No posts have been added yet.</li>
         {% endfor %}
     </ul>
 
