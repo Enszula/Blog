@@ -10,16 +10,16 @@ def index(request):
     """The home page for Blog."""
     return render(request, 'blogs/index.html')
 
-@login_required
 def posts(request):
-    """Show all topics."""
-    posts = Post.objects.filter(owner=request.user).order_by('date_added')
+    """Show all posts."""
+    # posts = Post.objects.filter(owner=request.user).order_by('date_added')
+    posts = Post.objects.order_by('date_added')
     context = {'posts': posts}
     return render(request, 'blogs/posts.html', context)
 
 @login_required
 def post(request, post_id):
-    """Show a single topic and all its entries."""
+    """Show a single post"""
     post = Post.objects.get(id=post_id)
     # Make sure the post belongs to the current user
     check_topic_owner(request, post)

@@ -1,9 +1,16 @@
 {% extends "blogs/base.html" %}
 
-{% block content %}
-    <p>
-       A blog is a discussion or informational website published on the World Wide Web consisting of discrete,
-        often informal diary-style text entries. Posts are typically displayed in reverse chronological order,
-        so that the most recent post appears first, at the top of the web page.
-    </p>
-{% endblock content %}
+{% block page_header %}
+    <div class="jumbotron">
+        <h1 class="display-3">Blog</h1>
+
+        <p>
+            A blog is a discussion or informational website published on the World Wide Web consisting of discrete,
+            often informal diary-style text entries. Posts are typically displayed in reverse chronological order,
+            so that the most recent post appears first, at the top of the web page.
+        </p>
+
+        <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}"
+            role="button">Register &raquo;</a>
+    </div>
+{% endblock page_header %}
