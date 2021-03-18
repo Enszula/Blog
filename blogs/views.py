@@ -22,7 +22,7 @@ def post(request, post_id):
     """Show a single post"""
     post = Post.objects.get(id=post_id)
     # Make sure the post belongs to the current user
-    check_topic_owner(request, post)
+    check_post_owner(request, post)
 
     context = {'post': post}
     return render(request, 'blogs/post.html', context)
@@ -50,7 +50,7 @@ def new_post(request):
 def edit_post(request, post_id):
     """Edit an existing post."""
     post = Post.objects.get(id=post_id)
-    check_topic_owner(request, post)
+    check_post_owner(request, post)
 
     if request.method != 'POST':
         # Initial request; pre-fill form with the current entry.
@@ -65,6 +65,6 @@ def edit_post(request, post_id):
     context = {'post': post, 'form': form}
     return render(request, 'blogs/edit_post.html', context)
 
-def check_topic_owner(request, post):
+def check_post_owner(request, post):
     if post.owner != request.user:
         raise Http404

@@ -1,26 +1,33 @@
 {% extends "blogs/base.html" %}
-
+{% load bootstrap4 %}
 {% block page_header %}
     <h3>Posts</h3>
 {% endblock page_header %}
 
 {% block content %}
-    <p>
-        <a href="{% url 'blogs:new_post' %}">Add a new post</a>
+    {% buttons %}
+        <form action="{% url 'blogs:new_post' %}">
+            <button name="add_post" class="btn btn-primary">Add post</button>
+        </form>
+        <!--<a href="{% url 'blogs:new_post' %}">Add a new post</a> -->
+    {% endbuttons %}
     </p>
     {% for post in posts %}
         <div class="card mb-3">
             <h4 class="card-header">
-                <small>
-                    <a href="{% url 'blogs:edit_post' post.id %}">Edit post</a>
-                </small>
-                {{ post.date_added }}
                 <strong>
                     <a href="{% url 'blogs:post' post.id %}">{{ post.title }}</a>
                 </strong>
+                <b>
+                    {{ post.owner }}
+                </b>
+                {{ post.date_added }}
             </h4>
             <div class="card-body">
-                {{ post.text|linebreaks }}
+                {{ post.text }}
+                <form action="{% url 'blogs:edit_post' post.id%}">
+                    <button name="add_post" class="btn btn-secondary btn-sm float-right">Edit</button>
+                </form>
             </div>
         </div>
     {% empty %}

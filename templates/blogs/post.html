@@ -1,16 +1,28 @@
 {% extends 'blogs/base.html' %}
+{% load bootstrap4 %}
+
+{% block page_header %}
+    <h2>Post: {{ post.title }}</h2>
+{% endblock page_header %}
 
 {% block content %}
 
-    <p> Post: <strong>{{ post }}</strong></p>
-    <ul>
-        <li>
-            <p>{{ post.date_added }}</p>
-            <p>{{ post.text|linebreaks }}</p>
-            <p>
-                <a href="{% url 'blogs:edit_post' post.id %}">Edit post</a>
-            </p>
-        </li>
-    </ul>
+    <div class="card mb-3">
+        <h4 class="card-header">
+            <strong>
+                <a href="{% url 'blogs:post' post.id %}">{{ post.title }}</a>
+            </strong>
+            <b>
+                {{ post.owner }}
+            </b>
+            {{ post.date_added }}
+        </h4>
+        <div class="card-body">
+            {{ post.text }}
+            <form action="{% url 'blogs:edit_post' post.id %}">
+                <button name="add_post" class="btn btn-secondary btn-sm float-right">Edit</button>
+            </form>
+        </div>
+    </div>
 
 {% endblock content %}

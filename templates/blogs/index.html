@@ -10,7 +10,10 @@
             so that the most recent post appears first, at the top of the web page.
         </p>
 
-        <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}"
+        {% if not user.is_authenticated %}
+            <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}"
             role="button">Register &raquo;</a>
+        {% endif %}
+
     </div>
 {% endblock page_header %}
