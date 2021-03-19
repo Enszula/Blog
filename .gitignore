@@ -1,2 +1,6 @@
-venv
 .idea
+venv
+db.sqlite3
+/blog/wsgi.py
+/blog/asgi.py
+/blog/__init__.py

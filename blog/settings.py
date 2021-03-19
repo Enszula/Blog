@@ -25,6 +25,7 @@ SECRET_KEY = '$(8h#!!^hp#xx$p45p!$)1h6rtj^nea-snps9m08^tu@k=@p^y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 # Add the asterisk in the empty list
 ALLOWED_HOSTS = ['*']
 
@@ -129,5 +130,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 # My settings
 LOGIN_URL = 'users:login'
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
