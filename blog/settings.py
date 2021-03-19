@@ -25,6 +25,7 @@ SECRET_KEY = '$(8h#!!^hp#xx$p45p!$)1h6rtj^nea-snps9m08^tu@k=@p^y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 # Add the asterisk in the empty list
 ALLOWED_HOSTS = ['*']
 
@@ -128,6 +129,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
 
 # My settings
 LOGIN_URL = 'users:login'
