@@ -131,3 +131,4 @@ STATIC_URL = '/static/'
 
 # My settings
 LOGIN_URL = 'users:login'
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
