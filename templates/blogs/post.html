@@ -18,7 +18,7 @@
             {{ post.date_added }}
         </h4>
         <div class="card-body">
-            {{ post.text }}
+            {{ post.text | linebreaksbr }}
             <form action="{% url 'blogs:edit_post' post.id %}">
                 <button name="add_post" class="btn btn-secondary btn-sm float-right">Edit</button>
             </form>

@@ -13,7 +13,7 @@ def index(request):
 def posts(request):
     """Show all posts."""
     # posts = Post.objects.filter(owner=request.user).order_by('date_added')
-    posts = Post.objects.order_by('date_added')
+    posts = Post.objects.order_by('-date_added')
     context = {'posts': posts}
     return render(request, 'blogs/posts.html', context)
 
