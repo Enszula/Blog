@@ -27,7 +27,7 @@ DEBUG = True
 
 
 # Add the asterisk in the empty list
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['13.49.247.43']
 
 
 # Application definition
