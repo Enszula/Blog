@@ -26,8 +26,7 @@ SECRET_KEY = '$(8h#!!^hp#xx$p45p!$)1h6rtj^nea-snps9m08^tu@k=@p^y'
 DEBUG = True
 
 
-# Add the asterisk in the empty list
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['13.49.247.43']
 
 
 # Application definition
