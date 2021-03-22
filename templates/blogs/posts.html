@@ -25,13 +25,17 @@
             </h4>
             <div class="card-body">
                 {{ post.text | linebreaksbr }}
-                <form action="{% url 'blogs:edit_post' post.id%}">
+                <form action="{% url 'blogs:edit_post' post.id%}" method="post">
+                    {% csrf_token %}
                     <button name="add_post" class="btn btn-secondary btn-sm float-right">Edit</button>
+                </form>
+                <form action="{% url 'blogs:delete_post' post.id%}">
+                    <button  name="delete_post" class="btn btn-danger btn-sm float-right">Delete</button>
                 </form>
             </div>
         </div>
     {% empty %}
-        <li><h3>No posts have been added yet.</h3></li>
+        <h3>No posts have been added yet.</h3>
 
     {% endfor %}
 

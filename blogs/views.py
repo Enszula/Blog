@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 
 from .forms import PostForm
 from .models import Post
@@ -64,6 +64,16 @@ def edit_post(request, post_id):
 
     context = {'post': post, 'form': form}
     return render(request, 'blogs/edit_post.html', context)
+
+@login_required
+def delete_post(request, post_id):
+    """Delete a single post"""
+    post = Post.objects.get(id=post_id)
+
+    check_post_owner(request, post)
+    post.delete()
+
+    return redirect('/posts')
 
 def check_post_owner(request, post):
     if post.owner != request.user:
