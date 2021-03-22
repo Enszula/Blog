@@ -21,8 +21,6 @@ def posts(request):
 def post(request, post_id):
     """Show a single post"""
     post = Post.objects.get(id=post_id)
-    # Make sure the post belongs to the current user
-    check_post_owner(request, post)
 
     context = {'post': post}
     return render(request, 'blogs/post.html', context)
